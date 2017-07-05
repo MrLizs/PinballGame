@@ -1,0 +1,7 @@
+sceneSetups:
+- path: Assets/PinballGame.unity
+  isLoaded: 0
+  isActive: 0
+- path: Assets/GameingScene.unity
+  isLoaded: 1
+  isActive: 1
