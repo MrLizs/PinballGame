@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour {
     public GameObject player;
+    public GameObject MyBall;
     Vector3 point;
     float moveSpeed;
 
@@ -28,7 +29,7 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetMouseButton(0))
         {
             point = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            Debug.Log(point.x);
+            //Debug.Log(point.x);
             if (point.x > 0.5f)
             {
                 this.playerUniformityMove(2);
@@ -37,12 +38,12 @@ public class PlayerControl : MonoBehaviour {
             {
                 this.playerUniformityMove(1);
             }
+            MyBall.transform.position = new Vector3(player.transform.position.x, MyBall.transform.position.y);
         }
         else if (Input.GetMouseButtonUp(0))
         {
             //Vector3 v3 = point - Camera.main.ScreenToViewportPoint(Input.mousePosition);
             //Debug.Log("移动X间距比例" + v3.x);
-            
         }
 #endif
     }
@@ -60,7 +61,7 @@ public class PlayerControl : MonoBehaviour {
         {
             if (player.transform.position.x > -8.0f)
             {
-                Debug.Log("左移动"+player.transform.position.x);
+                //Debug.Log("左移动"+player.transform.position.x);
                 player.transform.position = new Vector3(player.transform.position.x - moveSpeed, player.transform.position.y, -1);
             }
         }
@@ -68,7 +69,7 @@ public class PlayerControl : MonoBehaviour {
         {
             if (player.transform.position.x < 8.0f)
             {
-                Debug.Log("右移动"+player.transform.position.x);
+                //Debug.Log("右移动"+player.transform.position.x);
                 player.transform.position = new Vector3(player.transform.position.x + moveSpeed, player.transform.position.y, -1);
             }
         }
